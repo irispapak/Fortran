@@ -1,6 +1,6 @@
 program fibonacci
 
-  !Fibonacci sequence
+  ! It creates a Fibonacci sequence based on the length of numbers given by the user.
 
   integer N, i
   integer, dimension(:), allocatable :: a

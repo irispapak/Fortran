@@ -1,5 +1,7 @@
 program wind
 
+  ! It calculates the norm and direction of wind.
+  
   implicit none
   
   integer i,j

@@ -1,5 +1,7 @@
 program central_moving_average
 
+  ! It finds the central moving average of every column of fileB.prn, averaging 3, 5, 7, 9 numbers at each time and writes the results into seperate files.
+  
   character (len=90) :: filename
   integer i, j, z
   real B(43,4),cma(43,4,4)
@@ -29,7 +31,7 @@ end program central_moving_average
 !----------------
 subroutine cen_mov_average(A, r, c, cma)
 
-  !calculates the central moving average for 3,5,7,9
+  !calculates the central moving average for 3,5,7,9 numbers
   integer i, j, r, c, jump, z
   real A(r,c), cma3(r,c), cma5(r,c), cma7(r,c), cma9(r,c), cma(r,c,4)
 

@@ -1,5 +1,7 @@
 program calendar
 
+  ! It creates a calendar based on the years (start, end) given by the user.
+  
   integer year_start, year_end, rows, cols
   
  !ask for start and end year

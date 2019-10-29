@@ -1,5 +1,7 @@
 program corr_coeff
 
+  ! It calculates the correlation coefficient between the columns 1-2, 1-3, 1-4 in fileB.prn.
+
   integer i, j
   real B(43,4),R(3)
 

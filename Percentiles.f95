@@ -1,5 +1,7 @@
 program percentiles
 
+  ! It finds the 90th percentile of maximum temperature and 10th percentile of minimum temperature from file Thessaloniki.txt.
+  
   implicit none
   
   integer i, j, n, max10, min10

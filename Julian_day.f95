@@ -1,5 +1,7 @@
 program dateofbirth
 
+  ! It transforms the date of birth to julian day.
+  
   integer y, m, d, jul
     
   write(6,*)'Give me the date of your birth:'

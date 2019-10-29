@@ -1,6 +1,7 @@
 program Koppen_Classification
 
-  !Koppen Climate Classification
+  ! It characterizes a climate based on Koppen Climate Classification.
+
   character (len=15) :: name
   logical s, w, e
   integer i, j

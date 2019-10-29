@@ -1,4 +1,6 @@
 program K_index
+
+  ! It calculates the K index for file Data_radiosonde_5_5_2017.txt.
   
   implicit none
 
