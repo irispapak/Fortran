@@ -105,7 +105,7 @@ subroutine calendar_sub(year_start, year_end)
   end do
   
   !write into file the cal array
-  open(1,file='calendar.txt')
+  open(1,file='output/calendar.txt')
   do i=1,rows
      write(1,2)(cal(i,j),j=1,3)
   end do

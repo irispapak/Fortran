@@ -8,7 +8,7 @@ program percentiles
   real A(15706,6), d9, d1, Tmax(15706), Tmin(15706), temp
 
   n=15706
-  open(1, file='Thessaloniki.txt')
+  open(1, file='data/Thessaloniki.txt')
   do i=1,n
      read(1,*)(A(i,j),j=1,6)
   end do

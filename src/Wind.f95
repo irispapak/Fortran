@@ -7,7 +7,7 @@ program wind
   integer i,j
   real A(20,2), ws(20), wdir(20), rad
 
-  open(1, file='TableA.txt')
+  open(1, file='data/TableA.txt')
   do i=1,20
      read(1,*)(A(i,j),j=1,2)
   end do
@@ -19,7 +19,7 @@ program wind
      wdir(i)=atan2(A(i,2),A(i,1))/rad+180     
   end do
 
-  open(4, file='wind.txt')
+  open(4, file='output/wind.txt')
   write(4,2)' u','v','norm','direction'
   do i=1,20
      write(4,3)(A(i,j),j=1,2), ws(i), wdir(i)

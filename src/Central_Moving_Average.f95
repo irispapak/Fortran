@@ -7,7 +7,7 @@ program central_moving_average
   real B(43,4),cma(43,4,4)
 
   !read from file B
-  open(1, file='fileB.prn')
+  open(1, file='data/fileB.prn')
   do i=1,43
      read(1,*)(B(i,j),j=1,4)
   end do
@@ -16,7 +16,7 @@ program central_moving_average
   call cen_mov_average(B, 43, 4, cma)
 
   do z=1,4
-     write(filename,*) 'cma',z,'.txt'
+     write(filename,'(A,I0,A)') 'output/cma', z, '.txt'
      open(2, file=filename)
      do i=1,43
         write(2,9)(cma(i,j,z),j=1,4)

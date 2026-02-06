@@ -7,7 +7,7 @@ program K_index
   real A(36,11), K ,t850, td850, t700, td700, t500  !,T(36),Td(36)
   integer i,j
 
-  open(1, file='Data_radiosonde_5_5_2017.txt')
+  open(1, file='data/Data_radiosonde_5_5_2017.txt')
   do i=1,36
      read(1,*)(A(i,j),j=1,11)
   end do

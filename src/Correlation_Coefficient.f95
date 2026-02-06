@@ -6,7 +6,7 @@ program corr_coeff
   real B(43,4),R(3)
 
   !read from file B
-  open(1, file='fileB.prn')
+  open(1, file='data/fileB.prn')
   do i=1,43
      read(1,*)(B(i,j),j=1,4)
   end do

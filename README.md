@@ -1,31 +1,35 @@
-# Meteorological and Statistical Utilities in Modern Fortran
+# Fortran Utilities
 
-This repository contains a collection of high-performance kernels and utility scripts written in **Modern Fortran (F95/2003)**. These tools are designed for processing atmospheric data, calculating instability indexes, and classifying climate regimes.
+This folder contains small Fortran programs for meteorology, basic statistics, and time handling. The structure is:
 
-## Atmospheric Physics & Dynamics
+- `src/` Fortran source files (`.f95`)
+- `data/` sample input files used by some programs
+- `output/` sample outputs and default output locations
 
-- **K-Index (`K_index.f95`)**: Calculates the K-index (thunderstorm potential) using radiosonde data at 850 hPa, 700 hPa, and 500 hPa levels. It includes a classification logic for rain and thunderstorm probability.
-- **Koppen Classification (`Koppen_Classification.f95`)**: Implements the Köppen climate classification system based on mean monthly temperature and precipitation data to characterize climate zones (e.g., Af, Bwh, Cfa).
-- **Wind Calculations (`Wind.f95`)**: Utilities for calculating wind vectors and components.
+## Program Guide
 
-## Statistical and Mathematical Kernels
+| Program | Purpose | Inputs | Outputs |
+| --- | --- | --- | --- |
+| `src/Calendar.f95` | Builds a day-by-day calendar between a user-provided start and end year. | User input (start year, end year). | `output/calendar.txt` (day, month, year per line). |
+| `src/Julian_day.f95` | Converts a user-provided date to Julian day-of-year. | User input (year, month, day). | Printed to stdout. |
+| `src/Fibonacci.f95` | Generates a Fibonacci sequence of length `N`. | User input (sequence length). | Printed to stdout. |
+| `src/Central_Moving_Average.f95` | Computes central moving averages (3, 5, 7, 9 points) for each column in a time series. | `data/fileB.prn`. | `output/cma1.txt`, `output/cma2.txt`, `output/cma3.txt`, `output/cma4.txt`. |
+| `src/Correlation_Coefficient.f95` | Correlation coefficient between column 1 and columns 2-4. | `data/fileB.prn`. | Printed to stdout. |
+| `src/Percentiles.f95` | 90th percentile of max temperature and 10th percentile of min temperature. | `data/Thessaloniki.txt`. | Printed to stdout. |
+| `src/Wind.f95` | Computes wind speed and direction from u/v components. | `data/TableA.txt`. | `output/wind.txt`. |
+| `src/K_index.f95` | Computes the K-index for thunderstorm potential and classifies risk. | `data/Data_radiosonde_5_5_2017.txt`. | Printed to stdout. |
+| `src/Koppen_Classification.f95` | Assigns a Koppen climate class from monthly temp/precip. | User input (station name, 12 temps, 12 precip values). | Printed to stdout. |
 
-- **Moving Averages (`Central_Moving_Average.f95`)**: Implementation of central moving average filters for time-series smoothing.
-- **Correlation & Percentiles (`Correlation_Coefficient.f95`, `Percentiles.f95`)**: High-performance statistical routines for data analysis.
-- **Fibonacci & Math Utilities (`Fibonacci.f95`)**: Basic numerical algorithms.
+## How To Compile
 
-## Geosciences & Time Handling
-
-- **Calendar Utilities (`Calendar.f95`, `Julian_day.f95`)**: Robust routines for converting between Gregorian dates and Julian days, essential for handling long-term climate datasets and model time-steering.
-
-## Compilation
-
-To compile any of the Fortran routines, use a modern Fortran compiler (e.g., `gfortran`):
+Run from the `Fortran/` directory so the relative paths to `data/` and `output/` work:
 
 ```bash
-gfortran K_index.f95 -o k_index
+gfortran src/K_index.f95 -o k_index
 ./k_index
 ```
 
-## Data Requirements
-Some routines (like `K_index.f95`) expect input data in specific formats (e.g., `Data_radiosonde_5_5_2017.txt`). Ensure the data files are present in the same directory as the executable.
+## Notes
+
+- Programs that read input files assume the file formats used in `data/`.
+- Programs that write files place outputs in `output/` by default.
